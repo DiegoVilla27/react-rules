@@ -113,7 +113,7 @@ trim_trailing_whitespace = false
 
 Install and Configure Lint (Linter), Lint-Staged (Staged Commits Linter), and Commit Lint (Conventional Commits)
 
-- `npm i -D lint-staged @commitlint/types @commitlint/cli @commitlint/config-conventional eslint-plugin-react@latest eslint-plugin-html`
+- `npm i -D lint-staged @commitlint/types @commitlint/cli @commitlint/config-conventional @typescript-eslint/eslint-plugin eslint-plugin-html @typescript-eslint/parser eslint eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-react`
 - Create file _`.eslintrc.json`_
 ```json
 {
@@ -135,17 +135,27 @@ Install and Configure Lint (Linter), Lint-Staged (Staged Commits Linter), and Co
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true, // We enable JSX support
-      "tsx": true // We enable JSX support
+      "tsx": true // We enable TSX support
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
     }
   },
   "plugins": [
     "react-refresh",
     "@typescript-eslint",
-    "react"
+    "react",
+    "html"
   ],
   "rules": {
-    "react/react-in-jsx-scope": "off", // These two rules disable the need to import React in components
+    "react-hooks/rules-of-hooks": "error", // Rules of hooks
+    "react/react-in-jsx-scope": "off", // Rule for allows the use of a TSX or JSX component without the need to import React
     "react/jsx-uses-react": "off",
+    "react/jsx-uses-vars": "error", // Rule for disallow use var
+    "react/hook-use-state": "error", // Rule to check whether unstructured value and setter variables in a useState() call are named symmetrically
+    "react/jsx-key": "error", // Rule for using Keys in Child Elements within Loops
     "quotes": [ // Rule for using double quotes
       "error",
       "double",
@@ -351,8 +361,9 @@ module.exports = function (api) {
 
 Configuration to import files
 
-- Add in _`tsconfig.json`_:
+- Add in _`tsconfig.json`_ within `compilerOptions`:
 ```json
+/* Alias */
 "baseUrl": ".",
 "paths": {
   "@/*": ["src/*"],
@@ -363,19 +374,20 @@ Configuration to import files
 
 - Add in _`vite.config.ts`_
 ```typescript
+import path from "path";
 resolve: {
   alias: {
-    '@': path.resolve(__dirname, './src'),
-    '@components': path.resolve(__dirname, './src/components'),
-    '@otherFolder': path.resolve(__dirname, './src/otherFolder')
+    "@": path.resolve(__dirname, "./src"),
+    "@components": path.resolve(__dirname, "./src/components"),
+    "@otherFolder": path.resolve(__dirname, "./src/otherFolder")
   }
 }
 ```
 - Add in _`jest.config.cjs`_
-```
+```cjs
 moduleNameMapper: {
-  '^@components/(.*)$': '<rootDir>/src/components/$1',
-  '^@otherFolder/(.*)$': '<rootDir>/src/otherFolder/$1'
+  "^@components/(.*)$": "<rootDir>/src/components/$1",
+  "^@otherFolder/(.*)$": "<rootDir>/src/otherFolder/$1"
 }
 ```
 
