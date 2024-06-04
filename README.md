@@ -308,57 +308,57 @@ const Configuration: UserConfig = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     "type-empty": [
-      // Se encarga de validar el tipo
+      // It is responsible for validating the type
       RuleConfigSeverity.Error,
       "never"
     ],
     "type-enum": [
-      // Se encarga de los tipos (Example: feat, fix, bug and others)
+      // It is responsible for managing types (e.g., feat, fix, bug, and others)
       RuleConfigSeverity.Error,
       "always",
       ["feat", "fix", "styles", "docs", "test", "refactor"]
     ],
     "type-case": [
-      // Se encarga del case en el type
+      // It is responsible for enforcing case conventions in the type
       RuleConfigSeverity.Error,
       "always",
       "lower-case"
     ],
     "scope-empty": [
-      // Se encarga del scope (Example: feat(frontend), fix(web) and others)
+      // It is responsible for managing the scope (e.g., feat(frontend), fix(web), and others)
       RuleConfigSeverity.Error,
       "always"
     ],
     "subject-empty": [
-      // Se encarga de validar el subject
+      // It is responsible for validating the subject
       RuleConfigSeverity.Error,
       "never"
     ],
     "subject-case": [
-      // Se encarga del case en el subject
+      // It is responsible for enforcing case conventions in the subject
       RuleConfigSeverity.Error,
       "always",
       "sentence-case"
     ],
     "subject-min-length": [
-      // Se encarga del tamaño minimo del subject
+      // It is responsible for ensuring the subject meets the minimum length requirement
       RuleConfigSeverity.Error,
       "always",
       10
     ],
     "subject-max-length": [
-      // Se encarga del tamaño máximo del subject
+      // It is responsible for enforcing the maximum length limit of the subject
       RuleConfigSeverity.Error,
       "always",
       50
     ],
     "body-empty": [
-      // Se encarga de validar el body
+      // It is responsible for validating the body
       RuleConfigSeverity.Error,
       "always"
     ],
     "footer-empty": [
-      // Se encarga de validar el footer
+      // It is responsible for validating the footer
       RuleConfigSeverity.Error,
       "always"
     ]
