@@ -39,11 +39,10 @@ Install and Configure Husky (Git Hooks)
 ```bash
 npm i -D husky
 ```
-- Script and Execute (One-time setup):
+- Script and Execute (This command will create the _`.husky`_ folder in the root directory):
 ```bash
 "prepare": "husky install"
 ```
-(This command will create the _`.husky`_ folder in the root directory)
 - Create a Git Hook for `commit-msg` to run a regular expression validator (CommitLint) before each commit:
   - Execute command (Old version):
     ```bash
@@ -89,12 +88,17 @@ npm i -D husky
     echo "#HERE ANYTHING COMMAND" > .husky/pre-push
     ```
 
-### Prettier
+### Prettier 🎨
 
 Install and Configure Prettier
 
-- `npm i -D prettier`
-- Script -> `"pretier": "prettier . --write"` (Exec prettier for all files).
+```bash
+npm i -D prettier
+```
+- Script (Exec prettier for all files):
+  ```bash
+  "pretier": "prettier . --write"
+  ```
 - Create file _`.prettierrc.json`_
 
 ```json
@@ -143,11 +147,14 @@ max_line_length = off
 trim_trailing_whitespace = false
 ```
 
-### Lint, Lint-Staged and Commit Lint
+### Lint, Lint-Staged and Commit Lint 🔐
 
 Install and Configure Lint (Linter), Lint-Staged (Staged Commits Linter), and Commit Lint (Conventional Commits)
 
-- `npm i -D lint-staged @commitlint/types @commitlint/cli @commitlint/config-conventional @typescript-eslint/eslint-plugin eslint-plugin-html @typescript-eslint/parser eslint eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-react`
+```bash
+npm i -D lint-staged @commitlint/types @commitlint/cli @commitlint/config-conventional @typescript-eslint/eslint-plugin eslint-plugin-html @typescript-eslint/parser eslint eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-react
+```
+
 - Create file _`.eslintrc.json`_
 ```json
 {
@@ -252,16 +259,25 @@ Install and Configure Lint (Linter), Lint-Staged (Staged Commits Linter), and Co
 ```
 
 - Create file _`.lintstagedrc`_
-
 ```json
 {
   "**/*.{js,jsx,ts,tsx}": ["prettier --write", "eslint"]
 }
 ```
 
-- Script -> `"lint": "ng lint"` (Executes the linter)
-- Script -> `"lint:fix": "ng lint --fix ."` (Fixes errors reported by the linter)
-- Script -> `"lint:staged": "npx lint-staged"` (Executes the linter for files staged for commit)
+- Script (Executes the linter):
+  ```bash
+  "lint": "ng lint"
+  ```
+- Script (Fixes errors reported by the linter):
+  ```bash
+  "lint:fix": "ng lint --fix ."
+  ``` 
+- Script (Executes the linter for files staged for commit):
+  ```bash
+  "lint:staged": "npx lint-staged"
+  ```
+  
 - Create file _`commitlint.config.ts`_
 ```typescript
 import type { UserConfig } from "@commitlint/types"
@@ -346,13 +362,23 @@ const Configuration: UserConfig = {
 module.exports = Configuration
 ```
 
-### Jest
+### Jest 🧪
 
 Jest to testing application
 
-- `npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env`
-- Script -> `"test": "jest --coverage"` (Executes all unit tests)
-- Script -> `"test:one": "jest --coverage --collectCoverageFrom='your-url-relative-component-here' --watch your-url-relative-component-here"` (Executes a single unit test)
+```bash
+npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env
+```
+
+- Script (Executes all unit tests):
+  ```bash
+  "test": "jest --coverage"
+  ```
+- Script (Executes a single unit test):
+  ```bash
+  "test:one": "jest --coverage --collectCoverageFrom='your-url-relative-component-here' --watch your-url-relative-component-here"
+  ```
+  
 - Create file _`jest.config.cjs`_ and paste this:
 ```cjs
 module.exports = {
@@ -371,6 +397,7 @@ module.exports = {
   }
 };
 ```
+
 - Create file _`babel.config.cjs`_ and paste this:
 ```cjs
 module.exports = function (api) {
@@ -391,7 +418,7 @@ module.exports = function (api) {
 };
 ```
 
-## Aliases
+## Aliases 🗣️
 
 Configuration to import files
 
@@ -417,6 +444,7 @@ resolve: {
   }
 }
 ```
+
 - Add in _`jest.config.cjs`_
 ```cjs
 moduleNameMapper: {
@@ -425,14 +453,17 @@ moduleNameMapper: {
 }
 ```
 
-## Errors or Tips
+## Errors or Tips ❗️
 
 > To disable `@apply error scss` for _Tailwind CSS_ in VSCode, add the following script to your _.vscode > settings.json_: _`"scss.lint.unknownAtRules": "ignore"`_
 
-> If Husky isn't working on MacOS, execute the command (within the root project): _`chmod ug+x .husky/*`_
+> If Husky isn't working on MacOS, execute the command (within the root project):
+```bash
+chmod ug+x .husky/*
+```
 
 > To view prettified console objects in testing, use the following syntax: `console.log(JSON.stringify(obj, undefined, 2));`
 
-## Developer
+## Developer 👨🏻‍💻
 
 > Developed By: **`Diego Villa`**. - Website: [https://www.cabuweb.com](https://www.cabuweb.com)
