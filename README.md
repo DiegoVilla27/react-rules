@@ -27,7 +27,7 @@ Commit Structure Guidelines:
 - `test: Subject` (Adds or updates unit tests or end-to-end tests)
 - `refactor: Subject` (Improves existing code without changing functionality)
 
-> ¡IMPORTANT! _`Subject is sentence-case`_
+> IMPORTANT❗️ _`Subject is sentence-case`_
 
 ## Configuration ⚙️
 Please follow these steps:
@@ -35,6 +35,7 @@ Please follow these steps:
 ### Husky
 
 Install and Configure Husky (Git Hooks)
+[Go to ↪](https://typicode.github.io/husky/get-started.html)
 
 ```bash
 npm i -D husky
@@ -91,6 +92,7 @@ npm i -D husky
 ### Prettier 🎨
 
 Install and Configure Prettier
+[Go to ↪](https://prettier.io/docs/en/install.html)
 
 ```bash
 npm i -D prettier
@@ -150,6 +152,9 @@ trim_trailing_whitespace = false
 ### Lint, Lint-Staged and Commit Lint 🔐
 
 Install and Configure Lint (Linter), Lint-Staged (Staged Commits Linter), and Commit Lint (Conventional Commits)
+[Go to ESLint ↪](https://eslint.org/docs/latest/use/getting-started)
+[Go to Lint Staged ↪](https://www.npmjs.com/package/lint-staged)
+[Go to Commit Lint ↪](https://commitlint.js.org/guides/getting-started.html)
 
 ```bash
 npm i -D lint-staged @commitlint/types @commitlint/cli @commitlint/config-conventional @typescript-eslint/eslint-plugin eslint-plugin-html @typescript-eslint/parser eslint eslint-plugin-react-hooks eslint-plugin-react-refresh eslint-plugin-react
@@ -365,6 +370,7 @@ module.exports = Configuration
 ### Jest 🧪
 
 Jest to testing application
+[Go to ↪](https://jestjs.io/docs/getting-started)
 
 ```bash
 npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env
