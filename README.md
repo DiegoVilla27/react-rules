@@ -67,7 +67,7 @@ npm i -D husky
     - `|` Redirects output from the previous command to the next
     - `xargs` Takes a list of elements and passes them as arguments to another command
     - `-I {}` Saves the list of elements in {}
-    - `ng test` Executes tests
+    - `npm run test` Executes tests
     - `--include={}` Includes the saved list of elements for individual testing
     - `--browsers=ChromeHeadless` Runs tests in Chrome without the graphical interface
     - `--watch=false` Does not open the browser window
@@ -272,11 +272,11 @@ npm i -D lint-staged @commitlint/types @commitlint/cli @commitlint/config-conven
 
 - Script (Executes the linter):
   ```bash
-  "lint": "ng lint"
+  "lint": "eslint ."
   ```
 - Script (Fixes errors reported by the linter):
   ```bash
-  "lint:fix": "ng lint --fix ."
+  "lint:fix": "eslint --fix ."
   ``` 
 - Script (Executes the linter for files staged for commit):
   ```bash
@@ -367,7 +367,7 @@ const Configuration: UserConfig = {
 module.exports = Configuration
 ```
 
-### Jest 🧪
+### Testing 🧪
 
 Jest to testing application
 [Go to ↪](https://jestjs.io/docs/getting-started)
