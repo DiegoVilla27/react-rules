@@ -99,7 +99,7 @@ npm i -D prettier
 ```
 - Script (Exec prettier for all files):
   ```bash
-  "pretier": "prettier . --write"
+  "prettier": "prettier . --write"
   ```
 - Create file _`.prettierrc.json`_
 
