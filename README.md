@@ -35,7 +35,7 @@ Please follow these steps:
 ### Husky
 
 Install and Configure Husky (Git Hooks)
-[Go to ↪](https://typicode.github.io/husky/get-started.html)
+[Go to ↪](https://typicode.github.io/husky/get-started.html){:target="_blank"}
 
 ```bash
 npm i -D husky
