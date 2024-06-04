@@ -1,17 +1,24 @@
-# ReactRules
+# ReactRules 📁
 
 Rules to linters (React and TypeScript), prettier, husky and commitlint
 
 - This project was generated with [Vite](https://vitejs.dev/guide/) version 5.2.11
-- Creation command: `npm create vite@latest react-rules -- --template react-ts`
+- Creation command:
+```bash
+npm create vite@latest react-rules -- --template react-ts
+```
 - Node - Version 20.12.2
 - Npm - Version 10.5.0
 
-## Development server
+## Development server 🚀
 
-Run `npm run dev` for a dev server and navigate to `http://localhost:3000/`. The application will automatically reload if you change any of the source files.
+Run 
+```bash
+npm run dev
+```
+for a dev server and navigate to `http://localhost:3000/`. The application will automatically reload if you change any of the source files.
 
-## Commits
+## Commits 📝
 
 Commit Structure Guidelines:
 
@@ -24,7 +31,8 @@ Commit Structure Guidelines:
 
 > ¡IMPORTANT! _`Subject is sentence-case`_
 
-## Please follow these steps:
+## Configuration ⚙️
+Please follow these steps:
 
 ### Husky
 
