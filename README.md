@@ -32,7 +32,7 @@ Commit Structure Guidelines:
 ## Configuration ⚙️
 Please follow these steps:
 
-### Husky
+- ### Husky
 
 Install and Configure Husky (Git Hooks)
 
