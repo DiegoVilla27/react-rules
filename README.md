@@ -3,7 +3,6 @@
 Rules to linters (React and TypeScript), prettier, husky and commitlint
 
 - This project was generated with [Vite](https://vitejs.dev/guide/) version 5.2.11
-- Creation command:
 ```bash
 npm create vite@latest react-rules -- --template react-ts
 ```
@@ -12,7 +11,6 @@ npm create vite@latest react-rules -- --template react-ts
 
 ## Development server 🚀
 
-Run 
 ```bash
 npm run dev
 ```
@@ -38,13 +36,29 @@ Please follow these steps:
 
 Install and Configure Husky (Git Hooks)
 
-- `npm i -D husky`
-- Script and Execute (One-time setup) -> `"prepare": "husky install"` (This command will create the _`.husky`_ folder in the root directory)
+```bash
+npm i -D husky
+```
+- Script and Execute (One-time setup):
+```bash
+"prepare": "husky install"
+```
+(This command will create the _`.husky`_ folder in the root directory)
 - Create a Git Hook for `commit-msg` to run a regular expression validator (CommitLint) before each commit:
-  - Execute command (Old version): `npx husky add .husky/commit-msg 'npx --no -- commitlint --edit ${1}'`
-  - Execute command (New version): `echo "npx --no -- commitlint --edit \${1}" > .husky/commit-msg`
+  - Execute command (Old version):
+    ```bash
+    npx husky add .husky/commit-msg 'npx --no -- commitlint --edit ${1}'
+    ```
+  - Execute command (New version):
+    ```bash
+    echo "npx --no -- commitlint --edit \${1}" > .husky/commit-msg
+    ```
 - Create a Git Hook for `pre-commit` to run lint-staged (Prettier and ESLint) and tests before each commit:
-  - Script -> `"test:staged": "git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
+  - Script:
+    ```bash
+    "test:staged": "git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"
+    ```
+    Explanation:
     - `git diff` Displays changes in files
     - `--cached` Shows only staged files
     - `--diff-filter=d` Ignores deleted files
@@ -57,11 +71,23 @@ Install and Configure Husky (Git Hooks)
     - `--include={}` Includes the saved list of elements for individual testing
     - `--browsers=ChromeHeadless` Runs tests in Chrome without the graphical interface
     - `--watch=false` Does not open the browser window
-  - Execute command (Old version): `npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"`
-  - Execute command (New version): `echo "npx lint-staged && git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false" > .husky/pre-commit`
+  - Execute command (Old version):
+    ```bash
+    npx husky add .husky/pre-commit "npx lint-staged && git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false"
+    ```
+  - Execute command (New version):
+    ```bash
+    echo "npx lint-staged && git diff --cached --diff-filter=d --name-only -- '*.test.tsx' | xargs -I {} npm run test --include={} --browsers=ChromeHeadless --watch=false" > .husky/pre-commit
+    ```
 - Create a Git Hook for `pre-push` to execute a specified command before each push:
-  - Execute command (Old version): `npx husky add .husky/pre-push "#HERE ANYTHING COMMAND"`
-  - Execute command (New version): `echo "#HERE ANYTHING COMMAND" > .husky/pre-push`
+  - Execute command (Old version):
+    ```bash
+    npx husky add .husky/pre-push "#HERE ANYTHING COMMAND"
+    ```
+  - Execute command (New version):
+    ```bash
+    echo "#HERE ANYTHING COMMAND" > .husky/pre-push
+    ```
 
 ### Prettier
 
