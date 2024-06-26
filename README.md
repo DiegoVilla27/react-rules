@@ -461,6 +461,8 @@ moduleNameMapper: {
 
 ## Errors or Tips ❗️
 
+> Disable eslint line `// eslint-disable-next-line here-rule`
+
 > To disable `@apply error scss` for _Tailwind CSS_ in VSCode, add the following script to your _.vscode > settings.json_: _`"scss.lint.unknownAtRules": "ignore"`_
 
 > If Husky isn't working on MacOS, execute the command (within the root project):
