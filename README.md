@@ -6,6 +6,7 @@ Rules to linters (React and TypeScript), prettier, husky and commitlint
 ```bash
 npm create vite@latest react-rules -- --template react-ts
 ```
+- React - Version 18.2.0
 - Node - Version 20.12.2
 - Npm - Version 10.5.0
 
