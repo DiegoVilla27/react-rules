@@ -373,7 +373,7 @@ Jest to testing application
 [Go to ↪](https://jestjs.io/docs/getting-started)
 
 ```bash
-npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env
+npm install --save-dev jest @types/jest jest-transform-stub @testing-library/react @testing-library/jest-dom @babel/preset-env @babel/preset-react react-test-renderer ts-jest jest-environment-jsdom @types/jest @babel/preset-typescript babel-plugin-transform-import-meta @babel/plugin-transform-runtime babel-plugin-transform-vite-meta-env identity-obj-proxy
 ```
 
 - Script (Executes all unit tests):
@@ -400,6 +400,22 @@ module.exports = {
         plugins: ["babel-plugin-transform-vite-meta-env"],
       }
     ],
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  moduleNameMapper: {
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/fileMock.js',
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@otherFolder/(.*)$": "<rootDir>/src/otherFolder/$1"
+  },
+  collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80
+    }
   }
 };
 ```
@@ -422,6 +438,16 @@ module.exports = function (api) {
     ],
   };
 };
+```
+
+- Create file _`fileMock.js`_ and paste this:
+```js
+module.exports = 'test-file-stub';
+```
+
+- Add the following to your tsconfig.json file (in 'compilerOptions'):
+```json
+"allowJs": true,
 ```
 
 ## Aliases 🗣️
